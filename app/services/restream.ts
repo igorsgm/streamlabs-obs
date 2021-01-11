@@ -109,7 +109,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
 
   fetchUserSettings(): Promise<IUserSettingsResponse> {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const url = `https://${this.host}/api/v1/rst/user/settings`;
+    const url = `http://${this.host}/api/v1/rst/user/settings`;
     const request = new Request(url, { headers });
 
     return jfetch(request);
@@ -117,7 +117,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
 
   fetchTargets(): Promise<IRestreamTarget[]> {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const url = `https://${this.host}/api/v1/rst/targets`;
+    const url = `http://${this.host}/api/v1/rst/targets`;
     const request = new Request(url, { headers });
 
     return jfetch(request);
@@ -125,7 +125,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
 
   fetchIngest(): Promise<{ server: string }> {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const url = `https://${this.host}/api/v1/rst/ingest`;
+    const url = `http://${this.host}/api/v1/rst/ingest`;
     const request = new Request(url, { headers });
 
     return jfetch(request);
@@ -138,7 +138,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
     );
-    const url = `https://${this.host}/api/v1/rst/user/settings`;
+    const url = `http://${this.host}/api/v1/rst/user/settings`;
     const body = JSON.stringify({
       enabled,
       dcProtection: false,
@@ -187,7 +187,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
   }
 
   checkStatus(): Promise<boolean> {
-    const url = `https://${this.host}/api/v1/rst/util/status`;
+    const url = `http://${this.host}/api/v1/rst/util/status`;
     const request = new Request(url);
 
     return jfetch<{ name: string; status: boolean }[]>(request).then(
@@ -200,7 +200,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
     );
-    const url = `https://${this.host}/api/v1/rst/targets`;
+    const url = `http://${this.host}/api/v1/rst/targets`;
     const body = JSON.stringify(
       targets.map(target => {
         return {
@@ -221,7 +221,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
 
   deleteTarget(id: number) {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const url = `https://${this.host}/api/v1/rst/targets/${id}`;
+    const url = `http://${this.host}/api/v1/rst/targets/${id}`;
     const request = new Request(url, { headers, method: 'DELETE' });
 
     return fetch(request);
@@ -232,7 +232,7 @@ export class RestreamService extends StatefulService<IRestreamState> {
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
     );
-    const url = `https://${this.host}/api/v1/rst/targets`;
+    const url = `http://${this.host}/api/v1/rst/targets`;
     const body = JSON.stringify([
       {
         id,

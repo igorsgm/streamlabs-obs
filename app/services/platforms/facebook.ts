@@ -154,13 +154,13 @@ export class FacebookService extends BasePlatformService<IFacebookServiceState>
   get authUrl() {
     const host = this.hostsService.streamlabs;
     const query = `_=${Date.now()}&skip_splash=true&external=electron&facebook&force_verify&origin=slobs`;
-    return `https://${host}/slobs/login?${query}`;
+    return `http://${host}/slobs/login?${query}`;
   }
 
   get mergeUrl() {
     const host = this.hostsService.streamlabs;
     const token = this.userService.apiToken;
-    return `https://${host}/slobs/merge/${token}/facebook_account`;
+    return `http://${host}/slobs/merge/${token}/facebook_account`;
   }
 
   get oauthToken() {
@@ -512,7 +512,7 @@ export class FacebookService extends BasePlatformService<IFacebookServiceState>
    */
   private postPage(pageId: string) {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/user/facebook/pages`;
+    const url = `http://${host}/api/v5/slobs/user/facebook/pages`;
     const headers = authorizedHeaders(this.userService.apiToken!);
     headers.append('Content-Type', 'application/json');
     const request = new Request(url, {

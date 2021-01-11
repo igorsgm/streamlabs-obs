@@ -35,9 +35,9 @@ export class DonationTickerService extends WidgetSettingsService<IDonationTicker
     return {
       type: WidgetType.DonationTicker,
       url: WidgetDefinitions[WidgetType.DonationTicker].url(this.getHost(), this.getWidgetToken()),
-      previewUrl: `https://${this.getHost()}/widgets/donation-ticker?token=${this.getWidgetToken()}&simulate=1`,
-      dataFetchUrl: `https://${this.getHost()}/api/v5/slobs/widget/ticker`,
-      settingsSaveUrl: `https://${this.getHost()}/api/v5/slobs/widget/ticker`,
+      previewUrl: `http://${this.getHost()}/widgets/donation-ticker?token=${this.getWidgetToken()}&simulate=1`,
+      dataFetchUrl: `http://${this.getHost()}/api/v5/slobs/widget/ticker`,
+      settingsSaveUrl: `http://${this.getHost()}/api/v5/slobs/widget/ticker`,
       settingsUpdateEvent: 'donationTickerSettingsUpdate',
       customCodeAllowed: true,
       customFieldsAllowed: true,

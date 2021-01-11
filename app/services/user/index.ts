@@ -276,7 +276,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
     const host = this.hostsService.streamlabs;
     const headers = authorizedHeaders(this.apiToken);
-    const url = `https://${host}/api/v5/slobs/validate`;
+    const url = `http://${host}/api/v5/slobs/validate`;
     const request = new Request(url, { headers });
 
     const valid = await fetch(request).then(res => {
@@ -375,7 +375,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
     const host = this.hostsService.streamlabs;
     const headers = authorizedHeaders(this.apiToken);
-    const url = `https://${host}/api/v5/restream/user/info`;
+    const url = `http://${host}/api/v5/restream/user/info`;
     const request = new Request(url, { headers });
 
     return jfetch<ILinkedPlatformsResponse>(request).catch(() => {
@@ -389,7 +389,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
   async setPrimeStatus() {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/prime`;
+    const url = `http://${host}/api/v5/slobs/prime`;
     const headers = authorizedHeaders(this.apiToken);
     const request = new Request(url, { headers });
     return jfetch<{ expires_soon: boolean; expires_at: string; is_prime: boolean }>(request)
@@ -524,7 +524,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
           ? '&view=media-share'
           : '';
 
-      return `https://${host}/dashboard/recent-events?token=${token}&mode=${nightMode}&electron${isMediaShare}`;
+      return `http://${host}/dashboard/recent-events?token=${token}&mode=${nightMode}&electron${isMediaShare}`;
     }
   }
 
@@ -535,7 +535,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
     const i18nService = I18nService.instance as I18nService; // TODO: replace with getResource('I18nService')
     const locale = i18nService.state.locale;
     // eslint-disable-next-line
-    return `https://${
+    return `http://${
       this.hostsService.streamlabs
     }/slobs/dashboard?oauth_token=${token}&mode=${nightMode}&r=${subPage}&l=${locale}&hidenav=${hideNav}`;
   }
@@ -544,7 +544,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
     const host = this.hostsService.platform;
     const token = this.apiToken;
     const nightMode = this.customizationService.isDarkTheme ? 'night' : 'day';
-    let url = `https://${host}/slobs-store`;
+    let url = `http://${host}/slobs-store`;
 
     if (appId) {
       url = `${url}/app/${appId}`;
@@ -555,7 +555,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
   overlaysUrl(type?: 'overlay' | 'widget-theme', id?: string) {
     const uiTheme = this.customizationService.isDarkTheme ? 'night' : 'day';
-    let url = `https://${this.hostsService.streamlabs}/library?mode=${uiTheme}&slobs`;
+    let url = `http://${this.hostsService.streamlabs}/library?mode=${uiTheme}&slobs`;
 
     if (this.isLoggedIn) {
       url += `&oauth_token=${this.apiToken}`;
@@ -570,7 +570,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
   alertboxLibraryUrl(id?: string) {
     const uiTheme = this.customizationService.isDarkTheme ? 'night' : 'day';
-    let url = `https://${this.hostsService.streamlabs}/alertbox-library?mode=${uiTheme}&slobs`;
+    let url = `http://${this.hostsService.streamlabs}/alertbox-library?mode=${uiTheme}&slobs`;
 
     if (this.isLoggedIn) {
       url += `&oauth_token=${this.apiToken}`;
@@ -583,7 +583,7 @@ export class UserService extends PersistentStatefulService<IUserServiceState> {
 
   getDonationSettings() {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/donation/settings`;
+    const url = `http://${host}/api/v5/slobs/donation/settings`;
     const headers = authorizedHeaders(this.apiToken);
     const request = new Request(url, { headers });
 

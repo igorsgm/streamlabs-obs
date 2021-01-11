@@ -364,7 +364,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
   fetchRecentEvents() {
     const typeString = this.getEventTypesString();
     // eslint-disable-next-line
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/recentevents/${
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/recentevents/${
       this.userService.widgetToken
     }?types=${typeString}`;
     const headers = authorizedHeaders(this.userService.apiToken);
@@ -376,7 +376,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
 
   async fetchConfig() {
     // eslint-disable-next-line
-    const url = `https://${
+    const url = `http://${
       this.hostsService.streamlabs
     }/api/v5/slobs/widget/config?widget=recent_events`;
     const headers = authorizedHeaders(this.userService.apiToken);
@@ -387,7 +387,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
 
   fetchMediaShareState() {
     // eslint-disable-next-line
-    const url = `https://${
+    const url = `http://${
       this.hostsService.streamlabs
     }/api/v5/slobs/widget/config?widget=media-sharing`;
     const headers = authorizedHeaders(this.userService.apiToken);
@@ -471,7 +471,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
   }
 
   async fetchReadReceipts(hashValues: string): Promise<{ data: Dictionary<boolean> }> {
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/readreceipts`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/readreceipts`;
     const headers = authorizedHeaders(
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
@@ -488,7 +488,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
     );
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/widget/repeatalert`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/widget/repeatalert`;
     const body = JSON.stringify({
       data: event,
       type: event.type,
@@ -500,7 +500,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
   async readAlert(event: IRecentEvent) {
     this.TOGGLE_RECENT_EVENT_READ(event.uuid);
     const newEvent = this.views.getEvent(event.uuid);
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/widget/readalert`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/widget/readalert`;
     const headers = authorizedHeaders(
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
@@ -514,7 +514,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
   }
 
   async postUpdateFilterPreferences() {
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/widget/recentevents`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/widget/recentevents`;
     const headers = authorizedHeaders(
       this.userService.apiToken,
       new Headers({ 'Content-Type': 'application/json' }),
@@ -525,21 +525,21 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
   }
 
   async skipAlert() {
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/alerts/skip`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/alerts/skip`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers, method: 'POST' });
     return await fetch(request).then(handleResponse);
   }
 
   async pauseAlertQueue() {
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/alerts/pause_queue`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/alerts/pause_queue`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers, method: 'POST' });
     return fetch(request).then(handleResponse);
   }
 
   async unpauseAlertQueue() {
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/alerts/unpause_queue`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/alerts/unpause_queue`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers, method: 'POST' });
     return fetch(request).then(handleResponse);
@@ -782,7 +782,7 @@ export class RecentEventsService extends StatefulService<IRecentEventsState> {
       new Headers({ 'Content-Type': 'application/json' }),
     );
     // eslint-disable-next-line
-    const url = `https://${
+    const url = `http://${
       this.hostsService.streamlabs
     }/api/v5/slobs/widget/recentevents/eventspanel`;
     const body = JSON.stringify({ muted: !this.state.muted });

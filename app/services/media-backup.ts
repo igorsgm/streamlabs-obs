@@ -306,7 +306,7 @@ export class MediaBackupService extends StatefulService<IMediaBackupState> {
   }
 
   private get apiBase() {
-    return `https://${this.hostsService.media}/api/v5/slobs/media`;
+    return `http://${this.hostsService.media}/api/v5/slobs/media`;
   }
 
   private get authedHeaders() {

@@ -27,7 +27,7 @@ export class HostsService extends Service {
 
   get io() {
     if (Util.useLocalHost()) {
-      return 'http://io.streamlabs.site:4567';
+      return 'http://io.streamlabs.site:45670';
     }
     return 'https://aws-io.streamlabs.com';
   }

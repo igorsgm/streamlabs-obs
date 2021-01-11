@@ -83,7 +83,7 @@ export class TwitterService extends PersistentStatefulService<ITwitterServiceSta
     const token = this.userService.apiToken;
     const locale = this.i18nService.state.locale;
 
-    return `https://${this.hostsService.streamlabs}/slobs/twitter/link?oauth_token=${token}&l=${locale}`;
+    return `http://${this.hostsService.streamlabs}/slobs/twitter/link?oauth_token=${token}&l=${locale}`;
   }
 
   async getTwitterStatus() {
@@ -93,7 +93,7 @@ export class TwitterService extends PersistentStatefulService<ITwitterServiceSta
 
   async unlinkTwitter() {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/twitter/unlink`;
+    const url = `http://${host}/api/v5/slobs/twitter/unlink`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
     return jfetch(request).catch(() => {
@@ -103,7 +103,7 @@ export class TwitterService extends PersistentStatefulService<ITwitterServiceSta
 
   async fetchTwitterStatus() {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/twitter/status`;
+    const url = `http://${host}/api/v5/slobs/twitter/status`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
     return jfetch<ITwitterStatusResponse>(request).catch(() => {
@@ -113,7 +113,7 @@ export class TwitterService extends PersistentStatefulService<ITwitterServiceSta
 
   async postTweet(tweet: string) {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/twitter/tweet`;
+    const url = `http://${host}/api/v5/slobs/twitter/tweet`;
     const headers = authorizedHeaders(this.userService.apiToken);
     headers.append('Content-Type', 'application/json');
     const request = new Request(url, {

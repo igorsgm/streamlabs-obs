@@ -42,9 +42,9 @@ export class SponsorBannerService extends WidgetSettingsService<ISponsorBannerDa
     return {
       type: WidgetType.SponsorBanner,
       url: WidgetDefinitions[WidgetType.SponsorBanner].url(this.getHost(), this.getWidgetToken()),
-      previewUrl: `https://${this.getHost()}/widgets/sponsor-banner?token=${this.getWidgetToken()}`,
-      dataFetchUrl: `https://${this.getHost()}/api/v5/slobs/widget/sponsorbanner`,
-      settingsSaveUrl: `https://${this.getHost()}/api/v5/slobs/widget/sponsorbanner`,
+      previewUrl: `http://${this.getHost()}/widgets/sponsor-banner?token=${this.getWidgetToken()}`,
+      dataFetchUrl: `http://${this.getHost()}/api/v5/slobs/widget/sponsorbanner`,
+      settingsSaveUrl: `http://${this.getHost()}/api/v5/slobs/widget/sponsorbanner`,
       settingsUpdateEvent: 'sponsorBannerSettingsUpdate',
       customCodeAllowed: true,
       customFieldsAllowed: true,

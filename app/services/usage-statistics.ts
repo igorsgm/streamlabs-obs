@@ -158,7 +158,7 @@ export class UsageStatisticsService extends Service {
       bodyData.installer_id = this.installerId;
     }
 
-    const request = new Request(`https://${this.hostsService.streamlabs}/api/v5/slobs/log`, {
+    const request = new Request(`http://${this.hostsService.streamlabs}/api/v5/slobs/log`, {
       headers,
       method: 'POST',
       body: JSON.stringify(bodyData),
@@ -255,7 +255,7 @@ export class UsageStatisticsService extends Service {
 
     this.analyticsEvents.length = 0;
 
-    const request = new Request(`https://${this.hostsService.analitycs}/slobs/data/ping`, {
+    const request = new Request(`http://${this.hostsService.analitycs}/slobs/data/ping`, {
       headers,
       method: 'post',
       body: JSON.stringify(data || {}),

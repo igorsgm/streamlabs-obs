@@ -32,7 +32,7 @@ export abstract class BasePlatformService<T extends IPlatformState> extends Stat
   get mergeUrl() {
     const host = this.hostsService.streamlabs;
     const token = this.userService.apiToken;
-    return `https://${host}/slobs/merge/${token}/${this.platform}_account`;
+    return `http://${host}/slobs/merge/${token}/${this.platform}_account`;
   }
 
   async afterGoLive(): Promise<void> {
@@ -49,7 +49,7 @@ export abstract class BasePlatformService<T extends IPlatformState> extends Stat
 
   unlink() {
     // unlink platform and reload auth state
-    // const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/unlink/${this.platform}_account`;
+    // const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/unlink/${this.platform}_account`;
     // const headers = authorizedHeaders(this.userService.apiToken!);
     // const request = new Request(url, { headers });
     // return fetch(request)
@@ -57,7 +57,7 @@ export abstract class BasePlatformService<T extends IPlatformState> extends Stat
     //   .then(_ => this.userService.updateLinkedPlatforms());
 
     electron.remote.shell.openExternal(
-      `https://${this.hostsService.streamlabs}/dashboard#/settings/account-settings`,
+      `http://${this.hostsService.streamlabs}/dashboard#/settings/account-settings`,
     );
   }
 

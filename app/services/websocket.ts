@@ -137,7 +137,7 @@ export class WebsocketService extends Service {
       this.socket.disconnect();
     }
 
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/socket-token`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/socket-token`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
 

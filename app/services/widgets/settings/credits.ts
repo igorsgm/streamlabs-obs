@@ -60,9 +60,9 @@ export class CreditsService extends WidgetSettingsService<ICreditsData> {
     return {
       type: WidgetType.Credits,
       url: WidgetDefinitions[WidgetType.Credits].url(this.getHost(), this.getWidgetToken()),
-      previewUrl: `https://${this.getHost()}/widgets/end-credits?token=${this.getWidgetToken()}&simulate=1`,
-      dataFetchUrl: `https://${this.getHost()}/api/v5/slobs/widget/endcredits`,
-      settingsSaveUrl: `https://${this.getHost()}/api/v5/slobs/widget/endcredits`,
+      previewUrl: `http://${this.getHost()}/widgets/end-credits?token=${this.getWidgetToken()}&simulate=1`,
+      dataFetchUrl: `http://${this.getHost()}/api/v5/slobs/widget/endcredits`,
+      settingsSaveUrl: `http://${this.getHost()}/api/v5/slobs/widget/endcredits`,
       settingsUpdateEvent: 'endCreditsSettingsUpdate',
       customCodeAllowed: true,
       customFieldsAllowed: true,
@@ -70,7 +70,7 @@ export class CreditsService extends WidgetSettingsService<ICreditsData> {
   }
   testRollCredits() {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const request = new Request(`https://${this.getHost()}/api/v5/slobs/widget/test/endcredits`, {
+    const request = new Request(`http://${this.getHost()}/api/v5/slobs/widget/test/endcredits`, {
       headers,
     });
     return fetch(request);

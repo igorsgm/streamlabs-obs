@@ -138,7 +138,7 @@ export class MediaGalleryService extends Service {
   private formRequest(endpoint: string, options?: any) {
     const host = this.hostsService.streamlabs;
     const headers = authorizedHeaders(this.userService.apiToken);
-    const url = `https://${host}/${endpoint}`;
+    const url = `http://${host}/${endpoint}`;
     return new Request(url, { ...options, headers });
   }
 

@@ -214,7 +214,7 @@ export class YoutubeService extends BasePlatformService<IYoutubeServiceState>
   get authUrl() {
     const host = this.hostsService.streamlabs;
     return (
-      `https://${host}/slobs/login?_=${Date.now()}` +
+      `http://${host}/slobs/login?_=${Date.now()}` +
       '&skip_splash=true&external=electron&youtube&force_verify&origin=slobs'
     );
   }
@@ -419,7 +419,7 @@ export class YoutubeService extends BasePlatformService<IYoutubeServiceState>
 
   async fetchNewToken(): Promise<void> {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/youtube/token`;
+    const url = `http://${host}/api/v5/slobs/youtube/token`;
     const headers = authorizedHeaders(this.userService.apiToken!);
     const request = new Request(url, { headers });
 

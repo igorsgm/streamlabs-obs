@@ -42,7 +42,7 @@ export class FacemasksService extends PersistentStatefulService<Interfaces.IFace
   @Inject() appService: AppService;
   @Inject() usageStatisticsService: UsageStatisticsService;
 
-  cdn = `https://${this.hostsService.facemaskCDN}`;
+  cdn = `http://${this.hostsService.facemaskCDN}`;
   facemaskFilter: obs.IFilter = null;
   socketConnectionActive = false;
   downloadProgress = {};
@@ -624,7 +624,7 @@ export class FacemasksService extends PersistentStatefulService<Interfaces.IFace
   private formRequest<TResponse>(endpoint: string, options: any = {}) {
     const host = this.hostsService.streamlabs;
     const headers = authorizedHeaders(this.apiToken, options.headers);
-    const url = `https://${host}/api/v5/${endpoint}`;
+    const url = `http://${host}/api/v5/${endpoint}`;
     const request = new Request(url, { ...options, headers });
 
     return jfetch<TResponse>(request);

@@ -37,84 +37,84 @@ export const WidgetTesters: IWidgetTester[] = [
   {
     name: 'Follow',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/follow`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/follow`;
     },
     platforms: ['twitch'],
   },
   {
     name: 'Subscriber',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/follow`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/follow`;
     },
     platforms: ['youtube'],
   },
   {
     name: 'Subscription',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/subscription`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/subscription`;
     },
     platforms: ['twitch'],
   },
   {
     name: 'Membership',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/subscription`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/subscription`;
     },
     platforms: ['youtube'],
   },
   {
     name: 'Donation',
     url(host) {
-      return `https://${host}/api/v5/slobs/test/streamlabs/donation`;
+      return `http://${host}/api/v5/slobs/test/streamlabs/donation`;
     },
     platforms: ['twitch', 'youtube', 'facebook'],
   },
   {
     name: 'Bits',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/bits`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/bits`;
     },
     platforms: ['twitch'],
   },
   {
     name: 'Host',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/host`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/host`;
     },
     platforms: ['twitch'],
   },
   {
     name: 'Super Chat',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/superchat`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/superchat`;
     },
     platforms: ['youtube'],
   },
   {
     name: 'Share',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/share`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/share`;
     },
     platforms: ['facebook'],
   },
   {
     name: 'Support',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/support`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/support`;
     },
     platforms: ['facebook'],
   },
   {
     name: 'Stars',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/stars`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/stars`;
     },
     platforms: ['facebook'],
   },
   {
     name: 'Like',
     url(host, platform) {
-      return `https://${host}/api/v5/slobs/test/${platform}_account/like`;
+      return `http://${host}/api/v5/slobs/test/${platform}_account/like`;
     },
     platforms: ['facebook'],
   },
@@ -124,7 +124,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.AlertBox]: {
     name: 'Alert Box',
     url(host, token) {
-      return `https://${host}/alert-box/v3/${token}`;
+      return `http://${host}/alert-box/v3/${token}`;
     },
 
     width: 800,
@@ -139,7 +139,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.DonationGoal]: {
     name: 'Donation Goal',
     url(host, token) {
-      return `https://${host}/widgets/donation-goal?token=${token}`;
+      return `http://${host}/widgets/donation-goal?token=${token}`;
     },
 
     width: 600,
@@ -154,7 +154,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.FollowerGoal]: {
     name: 'Follower Goal',
     url(host, token) {
-      return `https://${host}/widgets/follower-goal?token=${token}`;
+      return `http://${host}/widgets/follower-goal?token=${token}`;
     },
 
     width: 600,
@@ -169,7 +169,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.SubscriberGoal]: {
     name: 'Subscriber Goal',
     url(host, token) {
-      return `https://${host}/widgets/follower-goal?token=${token}`;
+      return `http://${host}/widgets/follower-goal?token=${token}`;
     },
 
     width: 600,
@@ -184,7 +184,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.SubGoal]: {
     name: 'Sub Goal',
     url(host, token) {
-      return `https://${host}/widgets/sub-goal?token=${token}`;
+      return `http://${host}/widgets/sub-goal?token=${token}`;
     },
 
     width: 600,
@@ -199,7 +199,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.BitGoal]: {
     name: 'Bit Goal',
     url(host, token) {
-      return `https://${host}/widgets/bit-goal?token=${token}`;
+      return `http://${host}/widgets/bit-goal?token=${token}`;
     },
 
     width: 600,
@@ -214,7 +214,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.StarsGoal]: {
     name: 'Stars Goal',
     url(host, token) {
-      return `https://${host}/widgets/stars-goal?token=${token}`;
+      return `http://${host}/widgets/stars-goal?token=${token}`;
     },
 
     width: 600,
@@ -229,7 +229,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.SupporterGoal]: {
     name: 'Supporter Goal',
     url(host, token) {
-      return `https://${host}/widgets/supporter-goal?token=${token}`;
+      return `http://${host}/widgets/supporter-goal?token=${token}`;
     },
 
     width: 600,
@@ -244,7 +244,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.CharityGoal]: {
     name: 'Streamlabs Charity Goal',
     url(host, token) {
-      return `https://${host}/widgets/streamlabs-charity-donation-goal?token=${token}`;
+      return `http://${host}/widgets/streamlabs-charity-donation-goal?token=${token}`;
     },
 
     width: 600,
@@ -259,7 +259,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.DonationTicker]: {
     name: 'Donation Ticker',
     url(host, token) {
-      return `https://${host}/widgets/donation-ticker?token=${token}`;
+      return `http://${host}/widgets/donation-ticker?token=${token}`;
     },
 
     width: 600,
@@ -274,7 +274,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.ChatBox]: {
     name: 'Chat Box',
     url(host, token) {
-      return `https://${host}/widgets/chat-box/v1/${token}`;
+      return `http://${host}/widgets/chat-box/v1/${token}`;
     },
 
     width: 600,
@@ -289,7 +289,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.EventList]: {
     name: 'Event List',
     url(host, token) {
-      return `https://${host}/widgets/event-list/v1/${token}`;
+      return `http://${host}/widgets/event-list/v1/${token}`;
     },
 
     width: 600,
@@ -304,7 +304,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.TipJar]: {
     name: 'The Jar',
     url(host, token) {
-      return `https://${host}/widgets/tip-jar/v1/${token}`;
+      return `http://${host}/widgets/tip-jar/v1/${token}`;
     },
 
     width: 600,
@@ -319,7 +319,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.ViewerCount]: {
     name: 'Viewer Count',
     url(host, token) {
-      return `https://${host}/widgets/viewer-count?token=${token}`;
+      return `http://${host}/widgets/viewer-count?token=${token}`;
     },
 
     width: 600,
@@ -334,7 +334,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.StreamBoss]: {
     name: 'Stream Boss',
     url(host, token) {
-      return `https://${host}/widgets/streamboss?token=${token}`;
+      return `http://${host}/widgets/streamboss?token=${token}`;
     },
 
     width: 600,
@@ -349,7 +349,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.Credits]: {
     name: 'Credits',
     url(host, token) {
-      return `https://${host}/widgets/end-credits?token=${token}`;
+      return `http://${host}/widgets/end-credits?token=${token}`;
     },
 
     width: 1280,
@@ -364,7 +364,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.SponsorBanner]: {
     name: 'Sponsor Banner',
     url(host, token) {
-      return `https://${host}/widgets/sponsor-banner?token=${token}`;
+      return `http://${host}/widgets/sponsor-banner?token=${token}`;
     },
 
     width: 600,
@@ -379,7 +379,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.SpinWheel]: {
     name: 'Spin Wheel',
     url(host, token) {
-      return `https://${host}/widgets/wheel?token=${token}`;
+      return `http://${host}/widgets/wheel?token=${token}`;
     },
 
     width: 600,
@@ -394,7 +394,7 @@ export const WidgetDefinitions: { [x: number]: IWidget } = {
   [WidgetType.MediaShare]: {
     name: 'Media Share',
     url(host, token) {
-      return `https://${host}/widgets/media/v1/${token}`;
+      return `http://${host}/widgets/media/v1/${token}`;
     },
 
     width: 800,

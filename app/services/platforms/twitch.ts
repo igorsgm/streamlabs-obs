@@ -103,7 +103,8 @@ export class TwitchService extends BasePlatformService<ITwitchServiceState>
   };
 
   // Streamlabs Production Twitch OAuth Client ID
-  clientId = '8bmp6j83z5w4mepq0dn0q1a7g186azi';
+  // clientId = '8bmp6j83z5w4mepq0dn0q1a7g186azi';
+  clientId = 'jq40z9g5dlsi19gfoa9zfvy7hlnzzr';
 
   init() {
     // prepopulate data to make chat available after app start
@@ -120,7 +121,7 @@ export class TwitchService extends BasePlatformService<ITwitchServiceState>
       `_=${Date.now()}&skip_splash=true&external=electron&twitch&force_verify&` +
       `scope=${scopes.join(',')}&origin=slobs`;
 
-    return `https://${host}/slobs/login?${query}`;
+    return `http://${host}/slobs/login?${query}`;
   }
 
   // TODO: Refactor so this is reusable
@@ -196,7 +197,7 @@ export class TwitchService extends BasePlatformService<ITwitchServiceState>
 
   fetchNewToken(): Promise<void> {
     const host = this.hostsService.streamlabs;
-    const url = `https://${host}/api/v5/slobs/twitch/refresh`;
+    const url = `http://${host}/api/v5/slobs/twitch/refresh`;
     const headers = authorizedHeaders(this.userService.apiToken!);
     const request = new Request(url, { headers });
 

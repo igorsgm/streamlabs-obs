@@ -207,7 +207,7 @@ export class PlatformAppsService extends StatefulService<IPlatformAppServiceStat
    */
   async fetchProductionApps(): Promise<IProductionAppResponse[]> {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const request = new Request(`https://${this.hostsService.platform}/api/v1/sdk/installed_apps`, {
+    const request = new Request(`http://${this.hostsService.platform}/api/v1/sdk/installed_apps`, {
       headers,
     });
 
@@ -250,7 +250,7 @@ export class PlatformAppsService extends StatefulService<IPlatformAppServiceStat
   fetchAppStoreVisibility(): Promise<boolean> {
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(
-      `https://${this.hostsService.platform}/api/v1/sdk/is_app_store_visible`,
+      `http://${this.hostsService.platform}/api/v1/sdk/is_app_store_visible`,
       { headers },
     );
 
@@ -481,7 +481,7 @@ export class PlatformAppsService extends StatefulService<IPlatformAppServiceStat
   private getAppIdFromServer(appToken: string): Promise<string> {
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(
-      `https://${this.hostsService.platform}/api/v1/sdk/app_id?app_token=${appToken}`,
+      `http://${this.hostsService.platform}/api/v1/sdk/app_id?app_token=${appToken}`,
       { headers },
     );
 
@@ -490,7 +490,7 @@ export class PlatformAppsService extends StatefulService<IPlatformAppServiceStat
 
   private getIsDevMode(): Promise<boolean> {
     const headers = authorizedHeaders(this.userService.apiToken);
-    const request = new Request(`https://${this.hostsService.platform}/api/v1/sdk/dev_mode`, {
+    const request = new Request(`http://${this.hostsService.platform}/api/v1/sdk/dev_mode`, {
       headers,
     });
 

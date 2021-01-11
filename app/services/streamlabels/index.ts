@@ -191,7 +191,7 @@ export class StreamlabelsService extends StatefulService<IStreamlabelsServiceSta
     const headers = authorizedHeaders(this.userService.apiToken);
     headers.append('Content-Type', 'application/json');
 
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/settings`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/settings`;
     const request = new Request(url, {
       headers,
       method: 'POST',
@@ -206,7 +206,7 @@ export class StreamlabelsService extends StatefulService<IStreamlabelsServiceSta
   restartSession(): Promise<boolean> {
     if (!this.userService.isLoggedIn) return;
 
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/restart-session`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/restart-session`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
 
@@ -226,7 +226,7 @@ export class StreamlabelsService extends StatefulService<IStreamlabelsServiceSta
   private fetchInitialData(): void {
     if (!this.userService.isLoggedIn) return;
 
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/files`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/files`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
 
@@ -236,7 +236,7 @@ export class StreamlabelsService extends StatefulService<IStreamlabelsServiceSta
   private fetchSettings(): void {
     if (!this.userService.isLoggedIn) return;
 
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/settings`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/settings`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
 
@@ -249,7 +249,7 @@ export class StreamlabelsService extends StatefulService<IStreamlabelsServiceSta
     if (!this.userService.isLoggedIn) return;
 
     const platform = this.userService.platform.type;
-    const url = `https://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/app-settings/${platform}`;
+    const url = `http://${this.hostsService.streamlabs}/api/v5/slobs/stream-labels/app-settings/${platform}`;
     const headers = authorizedHeaders(this.userService.apiToken);
     const request = new Request(url, { headers });
 
