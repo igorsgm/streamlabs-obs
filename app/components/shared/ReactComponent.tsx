@@ -46,9 +46,27 @@ class ReactComponent<TComponentProps = {}> extends TsxComponent<WrapperProps<TCo
   },
 })
 export class NameFolder extends ReactComponent {}
+
 @Component({
   props: {
     name: { default: 'NewsBanner' },
   },
 })
 export class NewsBanner extends ReactComponent {}
+@Component({
+  props: {
+    name: { default: 'TitleBar' },
+    componentProps: { default: () => ({ windowId: '' }) },
+  },
+})
+export class TitleBar extends ReactComponent {}
+@Component({
+  props: {
+    name: { default: 'Chat' },
+    componentProps: { default: () => ({ restream: false }) },
+    wrapperStyles: {
+      default: () => ({ height: '100%', display: 'flex', flexDirection: 'column' }),
+    },
+  },
+})
+export class Chat extends ReactComponent {}
